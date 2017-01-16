@@ -1,0 +1,20 @@
+include _mixin.jade
+extends layouts/default
+block content
+	- var list = {items:['one','two','three']}
+	- var linklist = {items:['phone','Contact']}
+	- var h21 = "Mixin list"
+	.wrap
+		+header
+			h2= h21
+			+list(list,'listttt')
+			h2 Mixin linklist
+			+link_list(linklist,'menu')
+		main.main
+			section.svg
+				h2 Svg sprite
+				+icon('money')
+				+icon('sprout')
+	+footer
+		h2 Footer
+		p  Lorem ipsum dolor sit amet.

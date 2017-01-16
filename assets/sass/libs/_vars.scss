@@ -1,0 +1,130 @@
+
+$font_path: "../fonts/";
+$font_1: sans-serif;
+$font_size_base: 1.6rem;
+//---------------------------------------------fonts###
+//---------------------------------------------colors
+$white: #fff;
+$black: #000;
+
+$color_text_base: $black;
+$color_link_base:#4aa3df;
+$body_bg: $white;
+//---------------------------------------------colors###
+//---------------------------------------------z-index
+$z-index: (
+	popap : 9999,
+	header : 100,
+	footer : 100
+);
+//---------------------------------------------z-index###
+//---------------------------------------------layout
+$height_footer: 10rem;
+$height_header: 10rem;
+$page_width: 96rem;
+
+//---------------------------------------------layout###
+//---------------------------------------------global values
+$gl_indent: 3rem;
+$gl_radius:.5rem;
+//---------------------------------------------global values###
+//---------------------------------------------media points
+$point_1: 1200px;
+$point_2: 1024px;
+$point_3: 768px;
+$point_4: 480px;
+$point_5: 320px;
+//---------------------------------------------media points
+//---------------------------------------------forms
+$input_height:4rem;
+$input_offset:0 2rem;
+$input_font_size:$font_size_base;
+$input_border_color:#ccc;
+$input_border_color_active:$black;
+$input_placeholder_color: $black;
+$input_text_color:$black;
+$input_radius:$gl_radius;
+//---------------------------------------------forms###
+$border-width: 1px;
+$border-radius: 3px;
+$width-1: 24rem;
+$width-2: 32rem;
+$width-3: 48rem;
+$width-4: 64rem;
+$font-size: 16px;
+$h1: 2rem;
+$h2: 1.5rem;
+$h3: 1.25rem;
+$h4: 1rem;
+$h5: .875rem;
+$h6: .75rem;
+$line-height-1: 1;
+$line-height-2: 1.125;
+$line-height-3: 1.25;
+$line-height-4: 1.5;
+$letter-spacing: 1;
+$caps-letter-spacing: .2em;
+$bold-font-weight: bold;
+// margin
+$element-margin: 0.5em;
+// Font.
+$family: ('Noto Sans', sans-serif);
+$family-fixed: ('Courier New', monospace);
+$weight: 100;
+$weight-bold: 600;
+// Color
+$bg: #181818;
+$fg: #222;
+$fg: rgba(255, 255, 255, 0.75);
+$border: #cf8a05;
+$border2: rgba(255, 255, 255, 0.075);
+$border3: rgba(255, 255, 255, 0.5);
+$border4: rgba(255, 255, 255, 0.25);
+$accent1: #00BBD3;
+$accent2: #272833;
+$accent3: #5480f1;
+$accent4: #39c088;
+$text-color: #222;
+$color-white: #fff;
+$color-black: #000;
+$color-grey: #7e7e7e;
+$color-blue-light: #17baf1;
+$color-blue: #00bbf3;
+$color-grey-dark: #231f20;
+$color-green: #42b200;
+$color-border-blue: #00c3f5;
+$color-border-grey: #d3d4d5;
+$color-btn-green: #71b100;
+$color-red: #ff3c00;
+$color-grey-link-menu: #7f7f7f;
+$color-bg-grey: #f8f8f8;
+$color-bg-grey-dark: #12181c;
+$color-bg-blue: #d0e0ed;
+$color-bg-grey-active: #e1e1e1;
+$color-bg-grey-titlemenu: #bfbfbf;
+$color-bg-grey-cookie: #434344;
+$color-bg-messages: #d8ffd7;
+$color-border-grey-checkbox: #777777;
+$color-nav-green: #00a41f;
+$color-nav-green-light: #08cb08;
+$color-nav-red: #d10829;
+$color-nav-yellow: #eb940a;
+$color-nav-purple: #be0aeb;
+$color-nav-blue: #01b7e5;
+$a-color: #8A8A8A;
+$a-color-hover: #8A8A8A;
+$breakpoints: (
+   "phone": 400px,
+   "phone-wide": 480px,
+   "phablet": 560px,
+   "tablet-small": 640px,
+   "tablet": 768px,
+   "tablet-wide": 1024px,
+   "desktop": 1248px,
+   "desktop-wide": 1440px
+);
+$grid:12;
+$gutter:20px;
+$S : 480px;
+$M : 768px;
+$L : 1024px;

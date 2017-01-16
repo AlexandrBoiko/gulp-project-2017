@@ -1,0 +1,43 @@
+@import "libs/_mixin.scss";
+@include reset;
+@import "libs/_vars.scss";
+@import "libs/_basic.scss";
+@import "libs/_helper.scss";
+@import "_sprite.scss";
+$icon_font_name: "iconfont";
+@font-face {
+	font-family: $icon_font_name;
+	src: url('../fonts/icons/iconfont.eot');
+	src: url('../fonts/icons/iconfont.eot?#iefix') format('eot'), url('../fonts/icons/iconfont.woff') format('woff'), url('../fonts/icons/iconfont.ttf') format('truetype'), url('../fonts/icons/iconfont.svg#iconfont') format('svg');
+}
+$all: true;
+$ie9: false;
+$ie8: false;
+$ie7: false;
+
+// .widget_wrap {
+// 	display: none;
+// }
+h2{
+	text-shadow: 1px 1px 2px rgba(0,0,0, .4);
+	font-family: 'Noto Sans',sans-serif;
+	//padding-left: 10px;
+}
+.wrap{
+	width: 960px;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-left: 10px;
+}
+.footer{
+	width: 100%;
+	background-color: #ccc;
+	height: 198px;
+}
+.icon-money {
+	font-size: 10rem;
+}
+
+.icon-sprout {
+	font-size: 7rem;
+}

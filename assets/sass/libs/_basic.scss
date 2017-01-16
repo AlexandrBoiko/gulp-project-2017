@@ -1,0 +1,47 @@
+html {
+    font: 400 10px/1.33 $font_1;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    transition: all 0.4s ease-in-out;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    font-size: $font_size_base;
+    color: $color_text_base;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: $body_bg;
+}
+
+a {
+    text-decoration: none;
+    color: $color_link_base;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+pre {
+    -webkit-overflow-scrolling: touch;
+    font-family: $family;
+    font-size: 0.9em;
+    margin: 0 0 $element-margin;
+
+    code {
+        display: block;
+        line-height: 1.75em;
+        padding: 1em 1.5em;
+        overflow-x: auto;
+    }
+}

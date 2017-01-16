@@ -1,0 +1,293 @@
+.left  { float: left }
+.right { float: right }
+.inline       { display: inline }
+.block        { display: block }
+.inline-block { display: inline-block }
+.table        { display: table }
+.table-cell   { display: table-cell }
+
+.overflow-hidden { overflow: hidden }
+.overflow-scroll { overflow: scroll }
+.overflow-auto   { overflow: auto }
+.fit { max-width: 100% }
+
+// .max-width-1 { max-width: $width-1 }
+// .max-width-2 { max-width: $width-2 }
+// .max-width-3 { max-width: $width-3 }
+// .max-width-4 { max-width: $width-4 }
+.border-box { box-sizing: border-box }
+
+.Cf:before,
+.Cf:after {
+  content: " ";
+  display: table;
+}
+
+.Cf:after {
+  clear: both;
+}
+
+.Cf {
+  zoom: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.display-none {
+  display: none;
+}
+
+.img-responsive {
+  height: auto;
+  max-width: 100%;
+  // display: block;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.btn {
+  display: inline-block;
+  color: _palette(color-white);
+  background: _palette(color-black);
+  text-transform: uppercase;
+  font-size: _size(font-size);
+  line-height: 1.2;
+  font-weight: bold;
+  padding: 10px;
+  min-width: 125px;
+  text-align: center;
+  box-sizing: content-box;
+  text-decoration: none;
+  border-radius: 3px;
+  &.btn-blue {
+    background: _palette(color-blue-light);
+  }
+  &.btn-green {
+    background: _palette(color-btn-green);
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #999999;
+  background-image: -webkit-linear-gradient(left, #ffffff, #999999, #ffffff);
+  background-image: -moz-linear-gradient(left, #ffffff, #999999, #ffffff);
+  background-image: -ms-linear-gradient(left, #ffffff, #999999, #ffffff);
+  background-image: -o-linear-gradient(left, #ffffff, #999999, #ffffff);
+  width: 25%;
+  margin: 10px auto;
+}
+
+
+/*----------  align  ----------*/
+.align-baseline { vertical-align: baseline }
+.align-top      { vertical-align: top }
+.align-middle   { vertical-align: middle }
+.align-bottom   { vertical-align: bottom }
+
+/*----------  border  ----------*/
+.border {
+  border-style: solid;
+  border-width: $border-width;
+}
+
+.border-top {
+  border-top-style: solid;
+  border-top-width: $border-width;
+}
+
+.border-right {
+  border-right-style: solid;
+  border-right-width: $border-width;
+}
+
+.border-bottom {
+  border-bottom-style: solid;
+  border-bottom-width: $border-width;
+}
+
+.border-left {
+  border-left-style: solid;
+  border-left-width: $border-width;
+}
+
+.border-none { border: 0 }
+
+.rounded { border-radius:  $border-radius }
+.circle  { border-radius: 50% }
+
+.rounded-top    { border-radius:  $border-radius  $border-radius 0 0 }
+.rounded-right  { border-radius: 0  $border-radius  $border-radius 0 }
+.rounded-bottom { border-radius: 0 0  $border-radius  $border-radius }
+.rounded-left   { border-radius:  $border-radius 0 0  $border-radius }
+
+.not-rounded { border-radius: 0 }
+
+
+/*----------  flexbox  ----------*/
+
+.flex { display: flex }
+
+
+
+.flex-column  { flex-direction: column }
+.flex-wrap    { flex-wrap: wrap }
+
+.items-start    { align-items: flex-start }
+.items-end      { align-items: flex-end }
+.items-center   { align-items: center }
+.items-baseline { align-items: baseline }
+.items-stretch  { align-items: stretch }
+
+.self-start    { align-self: flex-start }
+.self-end      { align-self: flex-end }
+.self-center   { align-self: center }
+.self-baseline { align-self: baseline }
+.self-stretch  { align-self: stretch }
+
+.justify-start   { justify-content: flex-start }
+.justify-end     { justify-content: flex-end }
+.justify-center  { justify-content: center }
+.justify-between { justify-content: space-between }
+.justify-around  { justify-content: space-around }
+
+.content-start   { align-content: flex-start }
+.content-end     { align-content: flex-end }
+.content-center  { align-content: center }
+.content-between { align-content: space-between }
+.content-around  { align-content: space-around }
+.content-stretch { align-content: stretch }
+
+/* 1. Fix for Chrome 44 bug. https://code.google.com/p/chromium/issues/detail?id=506893 */
+.flex-auto {
+  flex: 1 1 auto;
+  min-width: 0; /* 1 */
+  min-height: 0; /* 1 */
+}
+.flex-none { flex: none }
+
+.order-0 { order: 0 }
+.order-1 { order: 1 }
+.order-2 { order: 2 }
+.order-3 { order: 3 }
+.order-last { order: 99999 }
+
+
+/*----------  margin padding  ----------*/
+.p0  { padding: 0 }
+.m0  {margin: 0;}
+
+
+/*----------  type scale  ----------*/
+.h1 { font-size: $h1 }
+.h2 { font-size: $h2 }
+.h3 { font-size: $h3 }
+.h4 { font-size: $h4 }
+.h5 { font-size: $h5 }
+.h6 { font-size: $h6 }
+.font-family-inherit { font-family: inherit }
+.font-size-inherit { font-size: inherit }
+.text-decoration-none { text-decoration: none }
+
+.bold    { font-weight: var(--bold-font-weight, bold) }
+.regular { font-weight: normal }
+.italic  { font-style: italic }
+.caps    { text-transform: uppercase; letter-spacing: $caps-letter-spacing; }
+
+.left-align   { text-align: left }
+.center       { text-align: center }
+.right-align  { text-align: right }
+.justify      { text-align: justify }
+
+.nowrap { white-space: nowrap }
+.break-word { word-wrap: break-word }
+
+.line-height-1 { line-height: $line-height-1 }
+.line-height-2 { line-height: $line-height-2 }
+.line-height-3 { line-height: $line-height-3 }
+.line-height-4 { line-height: $line-height-4 }
+
+.list-style-none { list-style: none }
+.underline { text-decoration: underline }
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+/*----------  grid  ----------*/
+
+.col {
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-right {
+  float: right;
+  box-sizing: border-box;
+}
+
+.col-1 {
+  width: calc(1/12 * 100%);
+}
+
+.col-2 {
+  width: calc(2/12 * 100%);
+}
+
+.col-3 {
+  width: calc(3/12 * 100%);
+}
+
+.col-4 {
+  width: calc(4/12 * 100%);
+}
+
+.col-5 {
+  width: calc(5/12 * 100%);
+}
+
+
+
