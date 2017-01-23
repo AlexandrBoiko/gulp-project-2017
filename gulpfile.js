@@ -114,7 +114,8 @@ gulp.task('jsSync', function () {
 
 //watching files and run tasks
 gulp.task('watch', function () {
-	gulp.watch(assetsDir + 'jade/**/*.jade', ['jade']);
+	// gulp.watch(assetsDir + 'jade/**/*.jade', ['jade']);
+	gulp.watch(assetsDir + 'pug/**/*.pug', ['pug']);
 	gulp.watch(assetsDir + 'sass/**/*.scss', ['sass']);
 	gulp.watch(assetsDir + 'js/**/*.js', ['jsSync']);
 	gulp.watch(assetsDir + 'js/all/**/*.js', ['jsConcat']);
@@ -210,7 +211,7 @@ var svgSprite = require('gulp-svg-sprite'),
 
 gulp.task('svgSpriteBuild', function () {
 	return gulp.src(assetsDir + 'i/icons/*.svg')
-		// minify svg
+	// minify svg
 		.pipe(svgmin({
 			js2svg: {
 				pretty: true
