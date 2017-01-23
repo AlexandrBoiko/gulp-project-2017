@@ -1,0 +1,23 @@
+
+
+extends layout/main.pug
+
+include _mixin.pug
+
+block title
+	| Главная страница1
+
+block content
+	- var list = {items:['one','two','three']}
+	- var linklist = {items:['phone','Contact']}
+	- var h21 = "Mixin list"
+	header
+		h2= h21
+		+list(list,'listttt')
+		h2 Mixin linklist
+		+link_list(linklist,'menu')
+	main.main
+		section.svg
+			h2 Svg sprite
+			+icon('money')
+			+icon('sprout')

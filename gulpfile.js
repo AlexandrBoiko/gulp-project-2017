@@ -2,6 +2,7 @@
 var gulp = require('gulp'),
 	rimraf = require('rimraf'),
 	jade = require('gulp-jade'),
+	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	inlineimage = require('gulp-inline-image'),
 	prefix = require('gulp-autoprefixer'),
@@ -12,7 +13,7 @@ var gulp = require('gulp'),
 	cssfont64 = require('gulp-cssfont64'),
 	sourcemaps = require('gulp-sourcemaps'),
 	postcss = require('gulp-postcss'),
-	assets  = require('postcss-assets');
+	assets = require('postcss-assets');
 
 // plugins for build
 var purify = require('gulp-purifycss'),
@@ -35,11 +36,20 @@ var buildDir = 'build/';
 gulp.task('jade', function () {
 	gulp.src([assetsDir + 'jade/*.jade', '!' + assetsDir + 'jade/_*.jade'])
 		.pipe(plumber())
-		.pipe(jade({pretty: true}))
+		.pipe(jade({
+			pretty: true
+		}))
 		.pipe(gulp.dest(outputDir))
 		.pipe(browserSync.stream());
 });
-
+gulp.task('pug', function () {
+	gulp.src([assetsDir + 'pug/*.pug', '!' + assetsDir + 'pug/_*.pug'])
+		.pipe(pug({
+			pretty: true
+		}))
+		.pipe(gulp.dest(outputDir))
+		.pipe(browserSync.stream());
+});
 gulp.task('sass', function () {
 	gulp.src([assetsDir + 'sass/**/*.scss', '!' + assetsDir + 'sass/**/_*.scss'])
 		.pipe(plumber())
@@ -48,7 +58,7 @@ gulp.task('sass', function () {
 		.pipe(inlineimage())
 		.pipe(prefix('last 3 versions'))
 		.pipe(postcss([assets({
-			basePath:outputDir,
+			basePath: outputDir,
 			loadPaths: ['i/']
 		})]))
 		.pipe(sourcemaps.write())
@@ -58,7 +68,9 @@ gulp.task('sass', function () {
 
 gulp.task('jsConcat', function () {
 	return gulp.src(assetsDir + 'js/all/**/*.js')
-		.pipe(concat('all.js', {newLine: ';'}))
+		.pipe(concat('all.js', {
+			newLine: ';'
+		}))
 		.pipe(gulp.dest(outputDir + 'js/'))
 		.pipe(browserSync.stream());
 });
@@ -76,14 +88,18 @@ gulp.task('fontsConvert', function () {
 gulp.task('imageSync', function () {
 	return gulp.src('')
 		.pipe(plumber())
-		.pipe(dirSync(assetsDir + 'i/', outputDir + 'i/', {printSummary: true}))
+		.pipe(dirSync(assetsDir + 'i/', outputDir + 'i/', {
+			printSummary: true
+		}))
 		.pipe(browserSync.stream());
 });
 
 gulp.task('fontsSync', function () {
 	return gulp.src('')
 		.pipe(plumber())
-		.pipe(dirSync(assetsDir + 'fonts/', outputDir + 'fonts/', {printSummary: true}))
+		.pipe(dirSync(assetsDir + 'fonts/', outputDir + 'fonts/', {
+			printSummary: true
+		}))
 		.pipe(browserSync.stream());
 });
 
@@ -129,7 +145,9 @@ gulp.task('imgBuild', function () {
 	return gulp.src(outputDir + 'i/**/*')
 		.pipe(imagemin({
 			progressive: true,
-			svgoPlugins: [{removeViewBox: false}],
+			svgoPlugins: [{
+				removeViewBox: false
+			}],
 			use: [pngquant()]
 		}))
 		.pipe(gulp.dest(buildDir + 'i/'));
@@ -192,21 +210,21 @@ var svgSprite = require('gulp-svg-sprite'),
 
 gulp.task('svgSpriteBuild', function () {
 	return gulp.src(assetsDir + 'i/icons/*.svg')
-	// minify svg
+		// minify svg
 		.pipe(svgmin({
 			js2svg: {
 				pretty: true
 			}
 		}))
 		// remove all fill and style declarations in out shapes
-// .pipe(cheerio({
-// 	run: function ($) {
-// 		$('[fill]').removeAttr('fill');
-// 		$('[stroke]').removeAttr('stroke');
-// 		$('[style]').removeAttr('style');
-// 	},
-// 	parserOptions: {xmlMode: true}
-// }))
+		// .pipe(cheerio({
+		// 	run: function ($) {
+		// 		$('[fill]').removeAttr('fill');
+		// 		$('[stroke]').removeAttr('stroke');
+		// 		$('[style]').removeAttr('style');
+		// 	},
+		// 	parserOptions: {xmlMode: true}
+		// }))
 		// cheerio plugin create unnecessary string '&gt;', so replace it.
 		.pipe(replace('&gt;', '>'))
 		// build svg sprite
@@ -216,7 +234,7 @@ gulp.task('svgSpriteBuild', function () {
 					sprite: "../sprite.svg",
 					render: {
 						scss: {
-							dest:'../../../sass/_sprite.scss',
+							dest: '../../../sass/_sprite.scss',
 							template: assetsDir + "sass/templates/_sprite_template.scss"
 						}
 					},
@@ -238,16 +256,17 @@ gulp.task('cssLint', function () {
 		.pipe(postcss(
 			[
 				stylelint(),
-				reporter({ clearMessages: true })
-			],
-			{
+				reporter({
+					clearMessages: true
+				})
+			], {
 				syntax: postcss_scss
 			}
 		));
 });
 
 
-gulp.task('default', ['jade', 'sass', 'imageSync', 'fontsSync', 'fontsConvert','svgSpriteBuild', 'jsConcat', 'jsSync', 'watch', 'browser-sync']);
+gulp.task('default', ['pug', 'sass', 'imageSync', 'fontsSync', 'fontsConvert', 'svgSpriteBuild', 'jsConcat', 'jsSync', 'watch', 'browser-sync']);
 
 gulp.task('build', ['cleanBuildDir'], function () {
 	gulp.start('imgBuild', 'fontsBuild', 'htmlBuild', 'jsBuild', 'cssBuild');

@@ -29,6 +29,7 @@ packages=(
 	'gulp-cssfont64'
 	'gulp-postcss'
 	'gulp-cheerio'
+	'gulp-pug'
 )
 
 count=0
